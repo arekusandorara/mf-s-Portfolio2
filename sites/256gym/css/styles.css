@@ -1,0 +1,403 @@
+/*共通*/
+* {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  counter-reset: section;
+  background: var(--main-color);
+}
+
+:root {
+  --main-color: #010101;
+  --accent-color: #ffc300;
+  --sub-color: #2c2f2c;
+  --button-color: #00b881;
+  --hover-color: #00a064;
+  --font-color: #fff;
+}
+
+h2 {
+  font-family: "Oswald", sans-serif;
+  color: var(--accent-color);
+  font-size: 40px;
+  font-style: italic;
+  text-align: center;
+}
+
+p {
+  color: var(--font-color);
+  line-height: 1.8;
+}
+
+section {
+  position: relative;
+}
+
+.wrapper {
+  padding: 72px 0 80px;
+}
+
+.inner {
+  max-width: 800px;
+  margin: 0 auto;
+  width: calc(100% - 64px);
+}
+
+.bottom-border {
+  background: linear-gradient(transparent 70%, var(--accent-color) 70%);
+}
+
+/*背景ナナメの共通*/
+.features,
+.free-trial {
+  background-color: var(--sub-color);
+  clip-path: polygon(0 3vw, 100% 0, 100% calc(100% - 3vw), 0% 100%);
+}
+
+/*画像ナナメ＆影の共通*/
+.image-box img {
+  /* max-width: 100%; */
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  clip-path: polygon(3% 0%, 100% 0%, 97% 100%, 0% 100%);
+}
+
+.clip-path-shadow {
+  filter: drop-shadow(6px 6px 0 var(--accent-color));
+  text-align: center;
+}
+
+
+/*heroセクション*/
+.hero {
+  height: 480px;
+  background-image: url("https://256times-upload-files.s3.ap-northeast-1.amazonaws.com/production/101/5227/7d4e5b0be4e8d93f5ab30a1c931167574beea966.jpg");
+  background-size: cover;
+  background-position: center;
+  background-color: var(--main-color);
+  clip-path: polygon(0 0, 100% 0, 100% 93%, 0% 100%);
+}
+
+.hero .inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 480px;
+  padding-bottom: 64px;
+}
+
+.logo {
+  background: rgba(1, 1, 1, 0.9);
+  width: 180px;
+  height: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  font-size: 0;
+}
+
+h1 img {
+  max-width: 100%;
+}
+
+.logo p {
+  color: var(--accent-color);
+  font-family: "Oswald", sans-serif;
+  font-weight: bold;
+  font-size: 24px;
+  margin-top: 8px;
+}
+
+.hero-text p {
+  font-size: clamp(22px, 4vw, 32px);
+  background: var(--font-color);
+  color: var(--main-color);
+  font-weight: bold;
+  margin-top: 16px;
+  margin-left: auto;
+  padding: 8px;
+  width: fit-content;
+}
+
+/*messageセクション*/
+.message {
+  background: var(--main-color);
+  overflow: hidden;
+}
+
+.message-inner-box {
+  position: relative;
+  /* z-index: 99; */
+  max-width: 480px;
+  margin: 32px auto 0;
+}
+
+.message-img {
+  text-align: center;
+}
+
+.message-inner-box p {
+  margin-top: 32px;
+}
+
+.message-backtext {
+  display: flex;
+  gap: 16px;
+  animation-name: flow;
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  position: absolute;
+  top: 36%;
+  left: 0;
+}
+
+.backtext {
+  color: var(--sub-color);
+  font-size: 80px;
+  font-weight: bold;
+  font-style: italic;
+  white-space: nowrap;
+}
+
+@keyframes flow {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(calc(-50% - 16px));
+  }
+}
+
+/*featuresセクション*/
+.features {
+  background: var(--sub-color);
+}
+
+.features .inner {
+  text-align: center;
+}
+
+.features-inner-inner {
+  max-width: 440px;
+  margin: 0 auto;
+}
+
+.features .image-box {
+  position: relative;
+  margin: 48px auto 0;
+}
+
+.features .inner p {
+  text-align: left;
+}
+
+.features .image-box::after {
+  font-family: "Oswald", sans-serif;
+  font-size: 64px;
+  font-weight: bold;
+  color: var(--accent-color);
+  counter-increment: section;
+  content: counter(section, decimal-leading-zero);
+  position: absolute;
+  top: -40px;
+  left: -24px;
+  /* z-index: 99; */
+}
+
+.features h3 {
+  color: var(--accent-color);
+  font-size: 22px;
+  margin-top: 32px;
+}
+
+.features p {
+  margin-top: 24px;
+}
+
+/*pricesセクション*/
+.prices {
+  background: var(--main-color);
+}
+
+.prices-text {
+  margin-top: 32px;
+}
+
+dl {
+  color: var(--font-color)
+}
+
+dt {
+  background: var(--accent-color);
+  color: var(--main-color);
+  text-align: center;
+  font-weight: bold;
+  margin-top: 32px;
+  padding: 8px 0;
+}
+
+dd {
+  margin: 0;
+  padding: 16px;
+  border: 1px solid var(--accent-color);
+}
+
+.campaign-price {
+  font-size: 48px;
+  text-align: center;
+}
+
+.full-price {
+  text-decoration: line-through;
+}
+
+.free-price {
+  font-weight: bold;
+}
+
+/*free-trialセクション*/
+.free-trial {
+  background: var(--sub-color);
+  text-align: center;
+}
+
+.free-trial p {
+  margin-top: 32px;
+  text-align: left;
+}
+
+button {
+  all: unset;
+  margin-top: 32px;
+  padding: 8px 24px;
+  background: var(--button-color);
+  color: var(--font-color);
+  text-align: center;
+  cursor: pointer;
+  transition-property: background;
+  transition-duration: 0.3s;
+}
+
+button:hover {
+  background: var(--hover-color);
+}
+
+/*footer*/
+footer {
+  background: var(--main-color);
+  color: var(--font-color);
+  font-size: 14px;
+  text-align: center;
+  height: 160px;
+  line-height: 160px;
+}
+
+
+@media (min-width:768px) {
+
+  /*共通*/
+  h2 {
+    font-size: 48px;
+  }
+
+  p {
+    font-size: 18px;
+  }
+
+  /*messageセクションPC*/
+  .message-inner-box {
+    display: flex;
+    gap: 32px;
+    max-width: none;
+  }
+
+  .message-inner-box .image-box {
+    flex: 1;
+  }
+
+  .message-img {
+    min-width: 400px;
+  }
+
+  .message-inner-box p {
+    flex: 2;
+    margin-top: 16px;
+  }
+
+  .message-backtext {
+    top: 60%;
+  }
+
+  .backtext {
+    font-size: 96px;
+  }
+
+  /*featuresセクションPC*/
+  .features-inner {
+    display: flex;
+    justify-content: center;
+    /* gap: 32px; */
+    gap: 40px;
+  }
+
+  .features-title {
+    position: sticky;
+    top: 0;
+    height: 200px;
+  }
+
+  .features .image-box::before {
+    font-size: 72px;
+  }
+
+  /*pricesセクションPC*/
+  dl {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 32px;
+  }
+
+  dt {
+    margin-top: 0;
+  }
+
+  dd {
+    min-height: 136px;
+  }
+
+  .price-box {
+    width: calc((100% - 32px) / 3);
+  }
+
+  .campaign-price {
+    font-size: 56px;
+  }
+
+  /*free-trialセクションPC*/
+  button {
+    font-size: 18px;
+  }
+
+  /*footer PC*/
+  footer {
+    font-size: 16px;
+  }
+}

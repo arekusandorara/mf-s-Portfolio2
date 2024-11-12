@@ -1,0 +1,409 @@
+/*共通*/
+:root {
+  --text-color: #333;
+  --bg-color: #222;
+  --color-white: #fff;
+  --color-gray: gray;
+  --color-light-gray: #eee;
+  --accent-color: #db3d33;
+  --accent-color2: rgba(65, 151, 171, 0.2);
+  --border-bottom-color: rgba(65, 151, 171, 0.6);
+  --dark-green: #002b30;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* * {
+  outline: 1px solid blue;
+} */
+
+body,
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+body {
+  counter-reset: section works-h3;
+  color: var(--text-color);
+}
+
+.inner {
+  max-width: 1000px;
+  width: calc(100% - 40px);
+  margin: 0 auto;
+}
+
+img {
+  max-width: 100%;
+  object-fit: cover;
+}
+
+ul {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/*ナビゲーション*/
+nav {
+  height: 80px;
+  position: absolute;
+  right: 40px;
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav li {
+  transition: border 0.5s;
+  display: inline-block;
+  margin-left: 24px;
+}
+
+nav li a {
+  text-decoration: none;
+  color: var(--color-white);
+  display: block;
+  line-height: 80px;
+  position: relative;
+}
+
+nav li a::after {
+  content: "";
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-white);
+  transition: width 0.3s ease;
+}
+
+nav li a:hover::after {
+  width: 100%;
+}
+
+/*heroセクション*/
+.hero {
+  height: 640px;
+  background-image: url(../images/canaria-island.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.toumei {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.hero-inner {
+  height: 640px;
+  max-width: 1000px;
+  margin: 0 auto;
+  width: calc(100% - 64px);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.hero-text h1 {
+  font-size: clamp(48px, 5.5vw, 64px);
+  letter-spacing: 6.4px;
+  color: #fff;
+  font-family: "Oswald", sans-serif;
+}
+
+.hero-text p {
+  margin-top: 80px;
+  font-size: 16px;
+  letter-spacing: 0.1em;
+  font-weight: 200;
+  color: #fff;
+  font-family: "Nothing You Could Do", cursive;
+  font-weight: 400;
+}
+
+
+.carousel {
+  width: 560px;
+  overflow: visible;
+  position: relative;
+  flex: 2;
+}
+
+.swiper {
+  width: 90%;
+  height: 90%;
+  margin-left: 0;
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.circle {
+  position: absolute;
+  top: -100px;
+  left: 160px;
+  animation: roll 30s infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes roll {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/*セクション*/
+#works {
+  padding: 80px 0;
+}
+
+.section-title-h2 {
+  text-align: center;
+  font-size: 40px;
+  font-family: "Oswald", sans-serif;
+  color: var(--dark-green);
+}
+
+.work-section {
+  margin-top: 160px;
+}
+
+.section-flex {
+  display: flex;
+  gap: 40px;
+}
+
+.reversed {
+  flex-direction: row-reverse;
+}
+
+.flex-img {
+  flex: 1;
+}
+
+.flex-img img {
+  box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.1);
+}
+
+.flex-text {
+  flex: 2;
+}
+
+.flex-text h3 {
+  background: linear-gradient(transparent 70%, var(--border-bottom-color) 70%);
+  width: fit-content;
+}
+
+.flex-text h3::before {
+  counter-increment: works-h3;
+  content: "制作物 " counter(works-h3);
+}
+
+.flex-text h3 span {
+  color: var(--text-color);
+  font-size: 14px;
+  font-weight: normal;
+  margin-left: 16px;
+}
+
+/*テーブル*/
+.works-table {
+  position: relative;
+  margin-top: 24px;
+}
+
+.works-table::after {
+  font-family: "Oswald", sans-serif;
+  font-size: 240px;
+  font-weight: normal;
+  color: var(--accent-color2);
+  counter-increment: section;
+  content: counter(section, decimal-leading-zero);
+  position: absolute;
+  top: -80px;
+  right: 0;
+  z-index: -1;
+}
+
+th {
+  width: 160px;
+  padding: 16px;
+  text-align: left;
+  vertical-align: top;
+}
+
+td {
+  padding: 16px;
+  vertical-align: top;
+}
+
+.td-first {
+  padding: 0;
+}
+
+.table-ul {
+  padding-left: 1em;
+}
+
+.table-ul li {
+  margin-top: 8px;
+}
+
+/*ボタン*/
+.work-link {
+  display: block;
+  border: 1px solid var(--text-color);
+  padding: 8px 24px;
+  text-align: center;
+  width: fit-content;
+  margin: 24px auto;
+  transition-duration: 0.5s;
+}
+
+.work-link:hover {
+  background: var(--dark-green);
+  color: var(--color-white);
+}
+
+/*About*/
+#about {
+  padding-bottom: 160px;
+}
+
+.skill-title {
+  margin-top: 80px;
+  margin-left: 180px;
+  font-size: 20px;
+  font-weight: bold;
+  background: linear-gradient(transparent 80%, var(--border-bottom-color) 70%);
+  width: fit-content;
+
+}
+
+.skill-table {
+  margin-top: 32px;
+  display: flex;
+  justify-content: center;
+  gap: 160px;
+}
+
+footer {
+  height: 80px;
+  background: var(--dark-green);
+  text-align: center;
+  line-height: 80px;
+  color: #fff;
+}
+
+/*戻るボタン*/
+.to-top {
+  width: 80px;
+  height: 80px;
+  line-height: 80px;
+  background: var(--color-white);
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  border: 2px solid var(--border-bottom-color);
+  border-radius: 50%;
+  color: var(--border-bottom-color);
+  font-size: 40px;
+  text-align: center;
+}
+
+
+@media (max-width:768px) {
+  .hero {
+    width: 100%;
+  }
+
+  .hero-inner {
+    display: block;
+  }
+
+  .hero-text p {
+    margin-top: 24px;
+  }
+
+  .carousel {
+    margin: 80px auto;
+    width: 100%;
+  }
+
+  .swiper {
+    margin-top: 24px;
+    width: 100%;
+    height: 100%;
+  }
+
+
+  /*サークル*/
+  .circle {
+    width: 72%;
+    top: -40px;
+    left: 64px;
+  }
+
+  /*spセクション*/
+  .section-flex {
+    display: block;
+    margin-top: 160px;
+  }
+
+  .flex-img {
+    text-align: center;
+  }
+
+  .flex-text h3 {
+    margin-top: 24px;
+  }
+
+  /*spテーブル*/
+  .works-inner table {
+    margin-top: 32px;
+  }
+
+  .works-table th,
+  .works-table td {
+    width: 100%;
+    display: block;
+  }
+
+  /*sp-About*/
+  .skill-title {
+    margin: 80px auto 40px;
+  }
+
+  .skill-table {
+    display: block;
+  }
+
+  .skill-table1,
+  .skill-table2 {
+    margin: auto;
+  }
+
+}
