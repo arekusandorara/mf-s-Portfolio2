@@ -215,6 +215,7 @@ nav li a:hover::after {
 .flex-text h3 {
   background: linear-gradient(transparent 70%, var(--border-bottom-color) 70%);
   width: fit-content;
+  display: inline;
 }
 
 .flex-text h3::before {
@@ -381,6 +382,11 @@ footer {
     margin-top: 24px;
   }
 
+  .flex-text h3 span {
+    display: block;
+    margin-left: 0;
+  }
+
   /*spテーブル*/
   .works-inner table {
     margin-top: 32px;
@@ -390,6 +396,11 @@ footer {
   .works-table td {
     width: 100%;
     display: block;
+  }
+
+  .work-link {
+    padding: 8px 0;
+    width: 120px;
   }
 
   /*sp-About*/
