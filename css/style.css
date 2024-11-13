@@ -34,6 +34,7 @@ p {
 body {
   counter-reset: section works-h3;
   color: var(--text-color);
+  font-family: "Noto Sans JP", sans-serif;
 }
 
 .inner {
@@ -388,6 +389,10 @@ footer {
   }
 
   /*spテーブル*/
+  th {
+    padding: 16px 16px 0;
+  }
+
   .works-inner table {
     margin-top: 32px;
   }
